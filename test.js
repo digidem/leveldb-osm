@@ -7,9 +7,9 @@ var Levelup = require('levelup')
 var db = Sublevel(Levelup('./mydb'));
 var qt = db.sublevel('qt');
 
-qt.createReadStream({ start: '120203300103', end: '120203300103~' })
+qt.createReadStream()
   .on('data', function (data) {
-    console.log(data.key)
+     if (data.key.match(/~n/g)) console.log(data.key)
   })
   .on('error', function (err) {
     console.log('Oh my!', err)
