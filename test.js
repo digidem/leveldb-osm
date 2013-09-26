@@ -9,7 +9,7 @@ var qt = db.sublevel('qt');
 
 qt.createReadStream()
   .on('data', function (data) {
-     if (data.key.match(/~n/g)) console.log(data.key)
+     if (data.key.match(/~w/g)) console.log(data.key)
   })
   .on('error', function (err) {
     console.log('Oh my!', err)
